@@ -51,3 +51,71 @@
    - Output: Show Achievements/Opportunities
 
 ---
+
+# Interface Code (React.js)
+
+**Login/Register Component:**
+```jsx
+import React, { useState } from 'react';
+
+function LoginRegister() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const toggleMode = () => setIsLogin(!isLogin);
+
+  return (
+    <div className="auth-container">
+      <h2>{isLogin ? 'Login' : 'Register'}</h2>
+      <form>
+        {!isLogin && <input type="text" placeholder="Name" required />}
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+      </form>
+      <p onClick={toggleMode} style={{ cursor: 'pointer', color: 'blue' }}>
+        {isLogin ? 'Don\'t have an account? Register' : 'Already have an account? Login'}
+      </p>
+    </div>
+  );
+}
+
+export default LoginRegister;
+```
+
+**Dashboard Component:**
+```jsx
+import React from 'react';
+
+function Dashboard() {
+  return (
+    <div className="dashboard">
+      <h1>Welcome to Swayam Sakhi</h1>
+      <div className="cards">
+        <div className="card">Active Courses</div>
+        <div className="card">Upcoming Modules</div>
+        <div className="card">Financial Tools</div>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
+```
+
+**Training Module Component:**
+```jsx
+import React from 'react';
+
+function TrainingModule() {
+  return (
+    <div className="training-module">
+      <h2>Module Title</h2>
+      <video controls src="/path/to/video.mp4">Your browser does not support the video tag.</video>
+      <button>Download Resources</button>
+      <button>Take Quiz</button>
+    </div>
+  );
+}
+
+export default TrainingModule;
+```
